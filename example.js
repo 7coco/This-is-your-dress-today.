@@ -3,9 +3,10 @@ if (!process.env.DRESS_TELLER_TOKEN_PRO) {
   process.exit(1);
 }
 
-var Botkit = require('botkit');
-var controller = Botkit.slackbot({
-  debug: false
+const Botkit = require('botkit');
+const CronJob = require('cron').CronJob;
+const controller = Botkit.slackbot({
+    debug: true
 });
 
 var bot = controller.spawn({
