@@ -6,7 +6,7 @@ if (!process.env.DRESS_TELLER_TOKEN_PRO) {
 const Botkit = require('botkit');
 const CronJob = require('cron').CronJob;
 const controller = Botkit.slackbot({
-    debug: true
+    debug: false
 });
 
 const bot = controller.spawn({
@@ -16,7 +16,9 @@ const bot = controller.spawn({
     new CronJob({
         // cronTime: '0 7 * * *', // 毎日朝の7時に
         cronTime: '* * * * *',// とにかく毎分
-        onTick: tellTDress(),
+        onTick: function(){
+            tellTDress();
+        },
         start: true,
         timeZone: 'Asia/Tokyo',
     });
@@ -25,3 +27,7 @@ const bot = controller.spawn({
 controller.hears(['hello'], 'direct_message,direct_mention,mention', function(bot, message) {
     bot.reply(message, 'hello!');
 });
+
+function tellTDress(){
+    console.log("tell dress");
+}
