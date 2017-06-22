@@ -1,0 +1,23 @@
+{
+  "name": "This-is-your-dress-today.",
+  "version": "1.0.0",
+  "description": "これが今日のあなたの服装です。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/7coco/This-is-your-dress-today..git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/7coco/This-is-your-dress-today./issues"
+  },
+  "homepage": "https://github.com/7coco/This-is-your-dress-today.#readme",
+  "dependencies": {
+    "botkit": "^0.5.4"
+  }
+}
