@@ -5,12 +5,13 @@ if (!process.env.DRESS_TELLER_TOKEN_PRO) {
 
 const Botkit = require('botkit');
 const CronJob = require('cron').CronJob;
-const connection = require('./mysqlConnection.js');
+const conn = require('./mysqlConnection.js');
 const Teller = require('./teller.js');
 const controller = Botkit.slackbot({
     debug: false
 });
 
+var teller = new Teller(conn);
 const bot = controller.spawn({
     token: process.env.DRESS_TELLER_TOKEN_PRO
 }).startRTM((err, bot, playload) => {
@@ -19,7 +20,7 @@ const bot = controller.spawn({
         // cronTime: '0 7 * * *', // 毎日朝の7時に
         cronTime: '* * * * *',// とにかく毎分
         onTick: function(){
-            Teller.tellDress();
+            teller.tellDress(bot);
         },
         start: true,
         timeZone: 'Asia/Tokyo',
@@ -31,9 +32,9 @@ controller.hears(['hello'], 'direct_message,direct_mention,mention', (bot, messa
 });
 
 controller.hears("^p$", 'direct_message, direct_mention, mention', (bot, message) => {
-    Teller.tellPremiumDress(bot, message);
+    teller.tellPremiumDress(bot, message);
 });
 
 controller.hears("^r$", 'direct_message, direct_mention, mention', (bot, message) => {
-    Teller.reTellDress(bot, message);
+    teller.reTellDress(bot, message);
 });

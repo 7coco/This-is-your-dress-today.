@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/7coco/This-is-your-dress-today.#readme",
   "dependencies": {
-    "botkit": "^0.5.4"
+    "botkit": "^0.5.4",
+    "cron": "^1.2.1",
   }
 }
