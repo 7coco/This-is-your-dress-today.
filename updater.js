@@ -1,14 +1,13 @@
+var Time = require('./time.js');
+
 class Updater {
     constructor(conn) {
         this.conn = conn;
     }
     updateLastSuggestedAt(dressId){
+        var time = new Time();
         var conn = this.conn;
-        var dt = new Date();
-        var year = dt.getFullYear();
-        var month = dt.getMonth() + 1;
-        var date = dt.getDate();
-        var today = year + '-' + month + '-' + date + ' 00:00:00';
+        var today = time.getToday();
         var query = "UPDATE `dresses` SET `last_suggested_at` = ? WHERE `id` = ?";
         conn.query(query, [today, dressId]);
     }

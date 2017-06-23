@@ -1,3 +1,5 @@
+const Time = require('./time.js');
+
 class Selector {
     constructor(conn) {
         this.conn = conn;
@@ -5,12 +7,9 @@ class Selector {
     selectDress(temperature_zone){
         return new Promise((resolve) => {
             var conn = this.conn;
-            var dt = new Date();
-            var year = dt.getFullYear();
-            var month = dt.getMonth() + 1;
-            var date = dt.getDate();
-            var today = year + '-' + month + '-' + date + ' 00:00:00';
-            var threeDaysAgo = year + '-' + month + '-' + (date - 3) + ' 00:00:00';
+            var time = new Time();
+            var today = time.getToday();
+            var threeDaysAgo = time.getDateByDiffFromToday(-3);
 
             var query = '' +
                 'SELECT `dresses`.`id` as dress_id, `outerwears`.name as outer_name, `outerwears`.`image_url` as outer_image_url, `underwears`.`image_url` as under_image_url FROM ' +

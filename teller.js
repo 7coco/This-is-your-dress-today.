@@ -8,7 +8,6 @@ class Teller {
 
     tellDress(bot, temperature){
         var conn = this.conn;
-        //var temperature = getTempereture();
         var selector = new Selector(conn);
         selector.selectDress(temperature)
         .then((dress) => {
