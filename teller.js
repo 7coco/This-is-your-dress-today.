@@ -5,14 +5,13 @@ class Teller {
         this.conn = conn;
     }
 
-    tellDress(bot){
+    tellDress(bot, temperature){
         var conn = this.conn
         //var temperature = getTempereture();
         var selector = new Selector(conn);
         var temperature = 25;
-        selector.selectDress()
+        selector.selectDress(temperature)
         .then((dress) => {
-            console.log(this.toString(dress));
             bot.say({
                 channel: 'general',
                 text: this.toString(dress),

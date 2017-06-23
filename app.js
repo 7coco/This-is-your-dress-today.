@@ -5,13 +5,17 @@ if (!process.env.DRESS_TELLER_TOKEN_PRO) {
 
 const Botkit = require('botkit');
 const CronJob = require('cron').CronJob;
+const request = require("request-promise-native");
+
 const conn = require('./mysqlConnection.js');
 const Teller = require('./teller.js');
+const Weather = require('./weather.js');
 const controller = Botkit.slackbot({
     debug: false
 });
 
 var teller = new Teller(conn);
+var weather = new Weather(request);
 const bot = controller.spawn({
     token: process.env.DRESS_TELLER_TOKEN_PRO
 }).startRTM((err, bot, playload) => {
@@ -20,7 +24,10 @@ const bot = controller.spawn({
         // cronTime: '0 7 * * *', // 毎日朝の7時に
         cronTime: '* * * * *',// とにかく毎分
         onTick: function(){
-            teller.tellDress(bot);
+            weather.getTempereture()
+            .then((temperature) => {
+                teller.tellDress(bot, weather.getTemperetureZone(temperature));
+            });
         },
         start: true,
         timeZone: 'Asia/Tokyo',
@@ -36,5 +43,5 @@ controller.hears("^p$", 'direct_message, direct_mention, mention', (bot, message
 });
 
 controller.hears("^r$", 'direct_message, direct_mention, mention', (bot, message) => {
-    teller.reTellDress(bot, message);
+    teller.tellDress(bot, message);
 });

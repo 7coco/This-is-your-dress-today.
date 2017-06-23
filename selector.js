@@ -2,7 +2,7 @@ class Selector {
     constructor(conn) {
         this.conn = conn;
     }
-    selectDress(){
+    selectDress(temperature_zone){
         return new Promise((resolve) => {
             var conn = this.conn;
             var dt = new Date();
@@ -11,7 +11,6 @@ class Selector {
             var date = dt.getDate();
             var today = year + '-' + month + '-' + date + ' 00:00:00';
             var threeDaysAgo = year + '-' + month + '-' + (date - 3) + ' 00:00:00';
-            var temperature_zone = 4;
 
             var query = '' +
                 'SELECT `outerwears`.name as outer_name, `outerwears`.`image_url` as outer_image_url, `underwears`.`image_url` as under_image_url FROM ' +
