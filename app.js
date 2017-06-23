@@ -22,7 +22,7 @@ const bot = controller.spawn({
     if(err) throw new Error('Could not connect to Slack');
     new CronJob({
         // cronTime: '0 7 * * *', // 毎日朝の7時に
-        cronTime: '* * * * *',// とにかく毎分
+        cronTime: '0 7 * * *',// とにかく毎分
         onTick: function(){
             weather.getTempereture()
             .then((temperature) => {
@@ -43,5 +43,8 @@ controller.hears("^p$", 'direct_message, direct_mention, mention', (bot, message
 });
 
 controller.hears("^r$", 'direct_message, direct_mention, mention', (bot, message) => {
-    teller.tellDress(bot, message);
+    weather.getTempereture()
+    .then((temperature) => {
+        teller.reTellDress(bot, message, weather.getTemperetureZone(temperature));
+    });
 });

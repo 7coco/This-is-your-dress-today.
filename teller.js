@@ -6,10 +6,9 @@ class Teller {
     }
 
     tellDress(bot, temperature){
-        var conn = this.conn
+        var conn = this.conn;
         //var temperature = getTempereture();
         var selector = new Selector(conn);
-        var temperature = 25;
         selector.selectDress(temperature)
         .then((dress) => {
             bot.say({
@@ -23,12 +22,18 @@ class Teller {
         bot.reply(message, 'premia_dress');
     }
 
-    reTellDress(bot, message){
-        bot.reply(message, 'Re choice dress');
+    reTellDress(bot, message, temperature){
+        var conn = this.conn;
+        var selector = new Selector(conn);
+        selector.selectDress(temperature)
+        .then((dress) => {
+            bot.reply(message, this.toString(dress));
+        });
     }
 
     toString(dress){
-        return "This is your dress today. \n" +
+        return "Good modning, Coco." +
+            "This is your dress today. \n" +
             `${dress.outer_name}\n` +
             `${dress.outer_image_url}\n` +
             `${dress.under_image_url}\n`;
