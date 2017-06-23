@@ -1,4 +1,5 @@
 const Selector = require('./selector');
+const Updater = require('./updater');
 
 class Teller {
     constructor(conn){
@@ -15,6 +16,8 @@ class Teller {
                 channel: 'general',
                 text: this.toString(dress),
             });
+            var updater = new Updater(conn);
+            updater.updateLastSuggestedAt(conn);
         });
     }
 
@@ -28,6 +31,8 @@ class Teller {
         selector.selectDress(temperature)
         .then((dress) => {
             bot.reply(message, this.toString(dress));
+            var updater = new Updater(conn);
+            updater.updateLastSuggestedAt(dress.dress_id);
         });
     }
 

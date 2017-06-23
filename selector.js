@@ -13,7 +13,7 @@ class Selector {
             var threeDaysAgo = year + '-' + month + '-' + (date - 3) + ' 00:00:00';
 
             var query = '' +
-                'SELECT `outerwears`.name as outer_name, `outerwears`.`image_url` as outer_image_url, `underwears`.`image_url` as under_image_url FROM ' +
+                'SELECT `dresses`.`id` as dress_id, `outerwears`.name as outer_name, `outerwears`.`image_url` as outer_image_url, `underwears`.`image_url` as under_image_url FROM ' +
                     '((`dresses` LEFT JOIN `outerwears` on `dresses`.`outerwear_id` = `outerwears`.`id`) ' +
                     'LEFT JOIN `underwears` on `dresses`.`underwear_id` = `underwears`.`id`) ' +
                     'LEFT JOIN `inners` on `outerwears`.`inner_id` = `inners`.`id` ' +
