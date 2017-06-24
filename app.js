@@ -10,6 +10,7 @@ const request = require("request-promise-native");
 const conn = require('./mysqlConnection.js');
 const Teller = require('./teller.js');
 const Weather = require('./weather.js');
+const Updater = require('./updater.js');
 const controller = Botkit.slackbot({
     debug: false
 });
@@ -43,8 +44,9 @@ controller.hears("^p$", 'direct_message, direct_mention, mention', (bot, message
 });
 
 controller.hears("^r$", 'direct_message, direct_mention, mention', (bot, message) => {
+    console.log("あ");
     weather.getTempereture()
     .then((temperature) => {
-        teller.reTellDress(bot, message, weather.getTemperetureZone(temperature));
+        teller.reTellDress(bot, message, weather.getTemperetureZone(temperature))
     });
 });

@@ -25,10 +25,9 @@ class Weather {
     getTempereture(){
         return new Promise((resolve) => {
             this.options.url += `?id=1857105&units=metric&appid=${this.apiKey}`;
-            console.log(this.options);
             this.request.get(this.options)
             .then((res) => {
-                resolve(res.main.temp)
+                resolve(res.main.temp_max);
             }).catch((err) => {
                 console.error(err);
             });

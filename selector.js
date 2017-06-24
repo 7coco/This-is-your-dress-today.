@@ -12,7 +12,7 @@ class Selector {
             var threeDaysAgo = time.getDateByDiffFromToday(-3);
 
             var query = '' +
-                'SELECT `dresses`.`id` as dress_id, `outerwears`.name as outer_name, `outerwears`.`image_url` as outer_image_url, `underwears`.`image_url` as under_image_url FROM ' +
+                'SELECT `dresses`.`id` as dress_id, `outerwears`.`id` as outer_id, `underwears`.`id` as under_id, `outerwears`.name as outer_name, `outerwears`.`image_url` as outer_image_url, `underwears`.`image_url` as under_image_url FROM ' +
                     '((`dresses` LEFT JOIN `outerwears` on `dresses`.`outerwear_id` = `outerwears`.`id`) ' +
                     'LEFT JOIN `underwears` on `dresses`.`underwear_id` = `underwears`.`id`) ' +
                     'LEFT JOIN `inners` on `outerwears`.`inner_id` = `inners`.`id` ' +
@@ -23,8 +23,10 @@ class Selector {
                         'AND `outerwears`.`last_weared_at` < ? ' +  // 3日以内に着ていない
                         'AND `dresses`.`last_suggested_at` < ? ' +  // 今日提案済みではない
                         'AND `dresses`.`temperature_zone` < ? ';
-
+            console.log(query);
+            console.log(temperature_zone);
             conn.query(query, [threeDaysAgo, threeDaysAgo, today, temperature_zone]).then((result) => {
+                console.log(result);
                 resolve(result[0][Math.floor(Math.random() * result[0].length)]);
             });
         });

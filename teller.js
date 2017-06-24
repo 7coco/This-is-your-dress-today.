@@ -17,6 +17,7 @@ class Teller {
             });
             var updater = new Updater(conn);
             updater.updateLastSuggestedAt(conn);
+            return dress;
         });
     }
 
@@ -25,18 +26,21 @@ class Teller {
     }
 
     reTellDress(bot, message, temperature){
-        var conn = this.conn;
-        var selector = new Selector(conn);
-        selector.selectDress(temperature)
-        .then((dress) => {
-            bot.reply(message, this.toString(dress));
-            var updater = new Updater(conn);
-            updater.updateLastSuggestedAt(dress.dress_id);
+        return new Promise((resolve) => {
+            var conn = this.conn;
+            var selector = new Selector(conn);
+            selector.selectDress(temperature)
+            .then((dress) => {
+                bot.reply(message, this.toString(dress));
+                var updater = new Updater(conn);
+                updater.updateLastSuggestedAt(dress.dress_id);
+                resolve(dress);
+            });
         });
     }
 
     toString(dress){
-        return "Good modning, Coco." +
+        return "Good modning, Coco. " +
             "This is your dress today. \n" +
             `${dress.outer_name}\n` +
             `${dress.outer_image_url}\n` +
