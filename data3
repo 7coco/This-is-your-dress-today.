@@ -1,0 +1,137 @@
+-- MySQL dump 10.13  Distrib 5.7.13, for osx10.11 (x86_64)
+--
+-- Host: localhost    Database: dress_teller
+-- ------------------------------------------------------
+-- Server version	5.7.13
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `dresses`
+--
+
+DROP TABLE IF EXISTS `dresses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dresses` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `outerwear_id` int(11) NOT NULL,
+  `underwear_id` int(11) NOT NULL,
+  `is_premia` tinyint(1) NOT NULL DEFAULT '0',
+  `temperature_zone` int(6) DEFAULT NULL,
+  `last_suggested_at` timestamp NULL DEFAULT '2017-05-31 15:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dresses`
+--
+
+LOCK TABLES `dresses` WRITE;
+/*!40000 ALTER TABLE `dresses` DISABLE KEYS */;
+INSERT INTO `dresses` VALUES (1,1,6,0,3,'2017-05-31 15:00:00'),(2,1,5,0,4,'2017-05-31 15:00:00'),(3,2,1,1,4,'2017-05-31 15:00:00'),(4,3,1,0,4,'2017-05-31 15:00:00'),(5,3,3,0,3,'2017-05-31 15:00:00'),(6,3,4,0,3,'2017-05-31 15:00:00'),(7,3,7,0,3,'2017-05-31 15:00:00'),(8,4,1,0,5,'2017-05-31 15:00:00'),(9,4,1,0,4,'2017-05-31 15:00:00'),(10,4,3,0,3,'2017-05-31 15:00:00'),(11,4,4,0,3,'2017-05-31 15:00:00'),(12,4,7,0,3,'2017-05-31 15:00:00'),(13,5,7,0,3,'2017-05-31 15:00:00'),(14,5,7,0,4,'2017-05-31 15:00:00'),(15,6,7,0,3,'2017-05-31 15:00:00'),(16,6,7,0,4,'2017-05-31 15:00:00'),(17,7,7,0,3,'2017-06-23 15:00:00'),(18,8,7,1,3,'2017-05-31 15:00:00'),(19,8,7,1,4,'2017-05-31 15:00:00'),(20,9,5,0,4,'2017-05-31 15:00:00'),(21,9,6,0,3,'2017-05-31 15:00:00'),(22,10,7,0,3,'2017-05-31 15:00:00'),(23,11,1,1,4,'2017-05-31 15:00:00'),(24,11,1,1,5,'2017-05-31 15:00:00'),(25,12,5,0,5,'2017-05-31 15:00:00'),(26,13,7,0,5,'2017-05-31 15:00:00'),(27,13,9,0,5,'2017-05-31 15:00:00'),(28,14,5,0,5,'2017-05-31 15:00:00'),(29,14,6,0,5,'2017-05-31 15:00:00'),(30,15,1,0,5,'2017-05-31 15:00:00'),(31,15,7,0,5,'2017-05-31 15:00:00'),(32,15,9,0,5,'2017-05-31 15:00:00'),(33,16,5,0,5,'2017-05-31 15:00:00'),(34,16,6,0,5,'2017-05-31 15:00:00'),(35,17,3,0,5,'2017-05-31 15:00:00'),(36,17,1,0,5,'2017-05-31 15:00:00'),(37,17,7,0,5,'2017-05-31 15:00:00'),(38,17,9,0,5,'2017-05-31 15:00:00'),(39,18,1,0,5,'2017-05-31 15:00:00'),(40,18,7,0,5,'2017-05-31 15:00:00'),(41,18,9,0,5,'2017-05-31 15:00:00'),(42,19,1,0,5,'2017-05-31 15:00:00'),(43,19,3,0,5,'2017-05-31 15:00:00'),(44,19,7,0,5,'2017-05-31 15:00:00'),(45,19,9,0,5,'2017-05-31 15:00:00'),(46,20,5,0,5,'2017-05-31 15:00:00'),(47,20,6,0,5,'2017-05-31 15:00:00'),(48,21,5,0,5,'2017-05-31 15:00:00'),(49,21,6,0,5,'2017-05-31 15:00:00'),(50,21,7,0,5,'2017-05-31 15:00:00'),(51,22,1,0,5,'2017-05-31 15:00:00'),(52,22,3,0,5,'2017-05-31 15:00:00'),(53,22,7,0,5,'2017-05-31 15:00:00'),(54,22,9,0,5,'2017-05-31 15:00:00'),(55,23,1,0,5,'2017-05-31 15:00:00'),(56,23,3,0,5,'2017-05-31 15:00:00'),(57,23,7,0,5,'2017-05-31 15:00:00'),(58,23,9,0,5,'2017-05-31 15:00:00'),(59,24,1,0,5,'2017-05-31 15:00:00'),(60,24,7,0,5,'2017-05-31 15:00:00'),(61,25,0,0,5,'2017-05-31 15:00:00'),(62,26,1,0,5,'2017-05-31 15:00:00'),(63,26,3,0,5,'2017-05-31 15:00:00'),(64,26,7,0,5,'2017-05-31 15:00:00'),(65,26,9,0,5,'2017-05-31 15:00:00'),(66,27,5,0,5,'2017-05-31 15:00:00'),(67,27,6,0,5,'2017-05-31 15:00:00'),(68,28,1,0,5,'2017-05-31 15:00:00'),(69,28,3,0,5,'2017-05-31 15:00:00'),(70,28,4,0,5,'2017-05-31 15:00:00'),(71,28,7,0,5,'2017-05-31 15:00:00'),(72,28,9,0,5,'2017-05-31 15:00:00'),(73,29,1,0,4,'2017-05-31 15:00:00'),(74,29,1,0,3,'2017-05-31 15:00:00'),(75,29,7,0,3,'2017-05-31 15:00:00'),(76,29,7,0,4,'2017-05-31 15:00:00'),(77,30,1,1,4,'2017-05-31 15:00:00'),(78,30,8,0,3,'2017-05-31 15:00:00'),(79,30,1,1,3,'2017-05-31 15:00:00'),(80,31,6,0,3,'2017-06-23 15:00:00'),(81,31,5,0,4,'2017-05-31 15:00:00'),(82,32,7,0,3,'2017-05-31 15:00:00'),(83,33,5,0,4,'2017-05-31 15:00:00'),(84,33,6,0,3,'2017-05-31 15:00:00'),(85,34,1,1,4,'2017-05-31 15:00:00'),(86,34,8,0,3,'2017-05-31 15:00:00'),(87,34,1,1,3,'2017-05-31 15:00:00');
+/*!40000 ALTER TABLE `dresses` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `inners`
+--
+
+DROP TABLE IF EXISTS `inners`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `inners` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `is_washing` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `inners`
+--
+
+LOCK TABLES `inners` WRITE;
+/*!40000 ALTER TABLE `inners` DISABLE KEYS */;
+INSERT INTO `inners` VALUES (1,'グレーのやつ',0),(2,'茶色いやつ',0),(3,'白黒しましま',0),(4,'黒いやつ',0);
+/*!40000 ALTER TABLE `inners` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `outerwears`
+--
+
+DROP TABLE IF EXISTS `outerwears`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `outerwears` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL DEFAULT 'NoName',
+  `has_inner` tinyint(11) NOT NULL DEFAULT '0',
+  `is_washing` tinyint(11) NOT NULL DEFAULT '0',
+  `image_url` varchar(2048) NOT NULL DEFAULT '',
+  `is_transparent` tinyint(4) NOT NULL DEFAULT '0',
+  `inner_id` int(11) DEFAULT NULL,
+  `last_weared_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `outerwears`
+--
+
+LOCK TABLES `outerwears` WRITE;
+/*!40000 ALTER TABLE `outerwears` DISABLE KEYS */;
+INSERT INTO `outerwears` VALUES (1,'黒のあみあみ',1,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106579/DSC_0093_amuna6.jpg',0,1,'2017-05-31 15:00:00'),(2,'ふんわりしましまwithジージャン',0,0,'https://cloudinary.com/console/media_library#/dialog/image/upload/DSC_0100_f8fy7y',0,NULL,'2017-05-31 15:00:00'),(3,'白のスモックみたいなボタンがついてるやつ',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106578/DSC_0092_zjg4ta.jpg',1,NULL,'2017-05-31 15:00:00'),(4,'白の胸元のボタンが一個のやつ',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106579/DSC_0091_jbiagg.jpg',1,NULL,'2017-05-31 15:00:00'),(5,'白と青の細かいチェックのやつ',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106578/DSC_0090_atrtjk.jpg',0,NULL,'2017-05-31 15:00:00'),(6,'白と青のざっくりチェック',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106579/DSC_0089_kuhde9.jpg',0,NULL,'2017-05-31 15:00:00'),(7,'白と水色のチェック',1,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106578/DSC_0088_b92oke.jpg',0,2,'2017-06-23 15:00:00'),(8,'緑の上着羽織るやつ',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106577/DSC_0087_mb2tqm.jpg',0,NULL,'2017-05-31 15:00:00'),(9,'黒くてリボンついてるやつ',1,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106577/DSC_0086_aatjbq.jpg',0,1,'2017-05-31 15:00:00'),(10,'茶色くてふわっとしたやつ',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106578/DSC_0085_ad2laq.jpg',0,NULL,'2017-05-31 15:00:00'),(11,'白みたいなグレーみたいなリボンついてる半袖のふわふわ',1,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106577/DSC_0083_nwwwsb.jpg',0,2,'2017-05-31 15:00:00'),(12,'紺の衿つき',0,0,'https://cloudinary.com/console/media_library#/dialog/image/upload/DSC_0081_uoamkx',0,NULL,'2017-05-31 15:00:00'),(13,'白黒しましまふわふわ半袖',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106576/DSC_0080_x3ivlc.jpg',0,NULL,'2017-05-31 15:00:00'),(14,'白黒細いしましま半袖',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106576/DSC_0079_wxa2hp.jpg',0,NULL,'2017-05-31 15:00:00'),(15,'紺と白の変な形の半袖のチェック',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106578/DSC_0078_boak8d.jpg',0,NULL,'2017-05-31 15:00:00'),(16,'黒のふわふわノースリーブ',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106576/DSC_0077_h8yvhd.jpg',0,NULL,'2017-05-31 15:00:00'),(17,'白地に黒でアバクロって書いてある',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106576/DSC_0076_gb5aeb.jpg',1,NULL,'2017-05-31 15:00:00'),(18,'グレーに赤でアバクロって書いてあるやつ',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106575/DSC_0075_djvfye.jpg',0,NULL,'2017-05-31 15:00:00'),(19,'白地に黒でアバクロって書いてあるやつ',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106574/DSC_0073_j5rkrn.jpg',1,NULL,'2017-05-31 15:00:00'),(20,'紺メインの白とのしましまぶかっとしてる',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106575/DSC_0072_eqvcsb.jpg',0,NULL,'2017-05-31 15:00:00'),(21,'緑っぽいなんかチェックのやつ',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106574/DSC_0071_z6fwii.jpg',0,NULL,'2017-05-31 15:00:00'),(22,'白と青の縦のしましま',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106573/DSC_0070_wbccnk.jpg',0,NULL,'2017-05-31 15:00:00'),(23,'白とグレーのしましま半袖',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106573/DSC_0069_jl9wkv.jpg',0,NULL,'2017-05-31 15:00:00'),(24,'グレーに白いアバクロのトナカイ',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106572/DSC_0068_hqfjwm.jpg',0,NULL,'2017-05-31 15:00:00'),(25,'気色悪いワンピース',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106572/DSC_0067_hm8wfq.jpg',0,NULL,'2017-05-31 15:00:00'),(26,'ふわふわ二重の半袖グレー',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106570/DSC_0066_xxfpn7.jpg',0,NULL,'2017-05-31 15:00:00'),(27,'ふわふわ二重の半袖黒',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106573/DSC_0065_y4zugq.jpg',0,NULL,'2017-05-31 15:00:00'),(28,'ふわふわ二重の半袖白',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106573/DSC_0063_uaoles.jpg',0,NULL,'2017-05-31 15:00:00'),(29,'白黒長袖ボーダー',0,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106573/DSC_0062_bwukwo.jpg',0,NULL,'2017-05-31 15:00:00'),(30,'ひらひら緑花柄',1,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106574/DSC_0061_dw7aba.jpg',0,2,'2017-05-31 15:00:00'),(31,'黒のあみあみ',1,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106579/DSC_0093_amuna6.jpg',0,4,'2017-05-31 15:00:00'),(32,'白と水色のチェック',1,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106578/DSC_0088_b92oke.jpg',0,1,'2017-05-31 15:00:00'),(33,'黒くてリボンついてるやつ',1,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106577/DSC_0086_aatjbq.jpg',0,4,'2017-05-31 15:00:00'),(34,'ひらひら緑花柄',1,0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106574/DSC_0061_dw7aba.jpg',0,4,'2017-05-31 15:00:00');
+/*!40000 ALTER TABLE `outerwears` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `underwears`
+--
+
+DROP TABLE IF EXISTS `underwears`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `underwears` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL DEFAULT 'NoName',
+  `is_washing` tinyint(4) NOT NULL DEFAULT '0',
+  `image_url` varchar(2048) NOT NULL DEFAULT '',
+  `last_weared_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `underwears`
+--
+
+LOCK TABLES `underwears` WRITE;
+/*!40000 ALTER TABLE `underwears` DISABLE KEYS */;
+INSERT INTO `underwears` VALUES (1,'らくらくズボン',0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106580/DSC_0101_szvmwt.jpg','2017-05-31 15:00:00'),(3,'色の濃いシーンズ',0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106580/DSC_0099_k0ua7l.jpg','2017-05-31 15:00:00'),(4,'黒のジーンズ',0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106580/DSC_0098_ehigln.jpg','2017-05-31 15:00:00'),(5,'白の7分ジーンズ',0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106579/DSC_0097_nheylb.jpg','2017-05-31 15:00:00'),(6,'白のジーンズ',0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106580/DSC_0096_oc9hxv.jpg','2017-05-31 15:00:00'),(7,'色が薄めのジーンズ',0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106579/DSC_0095_h9dkvy.jpg','2017-06-23 15:00:00'),(8,'カーキのズボン',0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106579/DSC_0094_nxk8qh.jpg','2017-05-31 15:00:00'),(9,'色が濃いめのジーンズ',0,'http://res.cloudinary.com/dy4f7hul5/image/upload/v1498106570/DSC_0060_wftn1q.jpg','2017-05-31 15:00:00');
+/*!40000 ALTER TABLE `underwears` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2017-06-24 17:01:10
