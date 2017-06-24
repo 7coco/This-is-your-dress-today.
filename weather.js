@@ -3,7 +3,7 @@ class Weather {
         this.request = request;
         this.apiKey = process.env.OPEN_WEATHER_MAP_KEY;
         this.options = {
-            url: "http://api.openweathermap.org/data/2.5/weather",
+            url: `http://api.openweathermap.org/data/2.5/weather?id=1857105&units=metric&appid=${this.apiKey}`,
             json: true,
         }
     }
@@ -24,7 +24,6 @@ class Weather {
 
     getTempereture(){
         return new Promise((resolve) => {
-            this.options.url += `?id=1857105&units=metric&appid=${this.apiKey}`;
             this.request.get(this.options)
             .then((res) => {
                 resolve(res.main.temp_max);

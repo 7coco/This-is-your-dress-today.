@@ -11,11 +11,14 @@ class Teller {
         var selector = new Selector(conn);
         selector.selectDress(temperature)
         .then((dress) => {
-            bot.say({
-                channel: 'general',
-                text: this.toString(dress),
+            bot.startConversation(message, (err, convo) => {
+                bot.say({
+                    channel: 'general',
+                    text: this.toString(dress),
+                });
             });
             var updater = new Updater(conn);
+            this.startConversation(bot, dress, updater);
             updater.updateLastSuggestedAt(conn);
             return dress;
         });
@@ -31,10 +34,29 @@ class Teller {
             var selector = new Selector(conn);
             selector.selectDress(temperature)
             .then((dress) => {
-                bot.reply(message, this.toString(dress));
                 var updater = new Updater(conn);
+                this.startConversation(bot, message, dress, updater);
                 updater.updateLastSuggestedAt(dress.dress_id);
                 resolve(dress);
+            });
+        });
+    }
+
+    startConversation(bot, message, dress, updater){
+        bot.startConversation(message, (err, convo) => {
+            convo.say(this.toString(dress));
+            convo.ask('Do you wear it? (y/n)', (res, convo) => {
+                console.log(res);
+                if(res.text == 'y'){
+                    updater.updateLastWearedAt(dress.outer_id, dress.under_id);
+                    convo.say('Okay! Then, see you tomorrow!');
+                    convo.next();
+                    return;
+                }else if (res.text == 'n'){
+                    convo.say('May I select a dress one more?\nIf you want, type "r".');
+                    convo.next();
+                    return;
+                }
             });
         });
     }

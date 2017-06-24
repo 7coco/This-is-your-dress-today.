@@ -44,7 +44,6 @@ controller.hears("^p$", 'direct_message, direct_mention, mention', (bot, message
 });
 
 controller.hears("^r$", 'direct_message, direct_mention, mention', (bot, message) => {
-    console.log("あ");
     weather.getTempereture()
     .then((temperature) => {
         teller.reTellDress(bot, message, weather.getTemperetureZone(temperature))
