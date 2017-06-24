@@ -40,7 +40,7 @@ controller.hears("^p$", 'direct_message, direct_mention, mention', (bot, message
     teller.tellPremiumDress(bot, message);
 });
 
-controller.hears("^r$", 'message_received', (bot, message) => {
+controller.hears("^r$", ['message_received'], (bot, message) => {
     weather.getTempereture()
     .then((temperature) => {
         teller.reTellDress(bot, message, weather.getTemperetureZone(temperature));
