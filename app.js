@@ -25,7 +25,10 @@ const bot = controller.spawn({
         // cronTime: '0 7 * * *', // 毎日朝の7時に
         cronTime: '0 7 * * *',// とにかく毎分
         onTick: function(){
-            bot.say();
+            bot.say({
+                text: 'r',
+                channel: '@7coco',
+            });
         },
         start: true,
         timeZone: 'Asia/Tokyo',
@@ -40,7 +43,7 @@ controller.hears("^p$", 'direct_message, direct_mention, mention', (bot, message
     teller.tellPremiumDress(bot, message);
 });
 
-controller.hears("^r$", ['message_received'], (bot, message) => {
+controller.hears("^r$", 'direct_message, direct_mention, mention', (bot, message) => {
     weather.getTempereture()
     .then((temperature) => {
         teller.reTellDress(bot, message, weather.getTemperetureZone(temperature));
