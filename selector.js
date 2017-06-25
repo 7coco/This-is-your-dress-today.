@@ -22,7 +22,7 @@ class Selector {
                         'AND `underwears`.`last_weared_at` < ? ' + // 3日以内に着ていない
                         'AND `outerwears`.`last_weared_at` < ? ' +  // 3日以内に着ていない
                         'AND `dresses`.`last_suggested_at` < ? ' +  // 今日提案済みではない
-                        'AND `dresses`.`temperature_zone` < ? ';
+                        'AND `dresses`.`temperature_zone` = ? ';
             console.log(query);
             console.log(temperature_zone);
             conn.query(query, [threeDaysAgo, threeDaysAgo, today, temperature_zone]).then((result) => {
